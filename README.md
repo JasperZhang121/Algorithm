@@ -1,2 +1,2 @@
 # Algorithm
-Automatically push the leetcode submissions.
+leetcode submissions.
