@@ -4,17 +4,12 @@ class Solution:
             return "1"
         else:
             s = self.countAndSay(n-1)
-            
-            i,j,ans = 0,0, ""
-            while j<len(s):
-                if s[i]==s[j]:
-                    if j == len(s)-1:
-                        if i!=j:
-                            ans +=str(j-i+1)+s[i]
-                        else:
-                            ans +="1"+s[i]
+            ans = ""
+            i,j=0,0
+            while i<len(s):
+                while j<len(s) and s[i]==s[j]:
                     j+=1
-                else:
-                    ans += str(j-i)+s[i]
-                    i=j
-            return ans
+                ans+=str(j-i)+s[i]
+                i = j-1
+                i+=1
+            return ans 
