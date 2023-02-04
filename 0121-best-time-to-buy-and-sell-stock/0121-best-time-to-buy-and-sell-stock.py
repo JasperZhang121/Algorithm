@@ -9,5 +9,4 @@ class Solution:
             elif prices[i] - minv > maxv:
                 maxv = prices[i]-minv
         return maxv
-                
         
