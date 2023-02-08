@@ -1,25 +1,21 @@
 class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
         
-
-        m = len(image)
-        n = len(image[0])
+        m,n,visited,origin = len(image),len(image[0]), set(), image[sr][sc]
         
-        visited = [[None for _ in range(n)] for _ in range(m)]
-        initialColor = image[sr][sc]
-        queue = [(sr,sc)]
+        def dfs(x,y):
+            if x>=0 and x<m and y>=0 and y<n:
+                if (x,y) not in visited and image[x][y]==origin:
+                    image[x][y] = color
+                    visited.add((x,y))
+                    dfs(x-1,y); dfs(x+1,y) ; dfs(x,y-1) ; dfs(x,y+1)
+            else:
+                return
         
-        while queue:
-            sr, sc = queue.pop(0)
-            visited[sr][sc] = True
-            image[sr][sc] = color
-            for dsr, dsc in [(sr+1, sc), (sr-1, sc), (sr, sc+1), (sr, sc-1)]:
-                if 0 <= dsr < m and 0 <= dsc < n and not visited[dsr][dsc] and image[dsr][dsc] == initialColor:
-                    queue.append((dsr, dsc))
+        dfs(sr,sc)
+        
         return image
-
-
-
-                
-                
-                
+        
+        
+            
+        
