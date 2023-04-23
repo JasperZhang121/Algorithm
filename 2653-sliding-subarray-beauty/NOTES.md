@@ -1,3 +1,10 @@
+## This this Question from Weekly contest 342. 
+
+**Tips: Using a sorted list would be much better instead of sorting each time subarray length is k.**
+
+
+### Process:
+
 - Initialize an empty list to hold the answers and a SortedList to hold the values of the sliding window.
 - Iterate through the input array and add each value to the SortedList.
 - If the size of the SortedList is greater than k, remove the leftmost element from the
