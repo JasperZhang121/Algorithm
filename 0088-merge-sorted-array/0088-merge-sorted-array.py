@@ -3,15 +3,10 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        
-        
-        for i in range(n):
-            nums1[i+m] = nums2[i]
+        a = m
+        while a<len(nums1):
+            nums1[a] = nums2[m+n-a-1]
+            a+=1
         
         nums1.sort()
-        
-        
-        
-        
-        
         
