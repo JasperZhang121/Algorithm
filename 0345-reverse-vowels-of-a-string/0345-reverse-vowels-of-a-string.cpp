@@ -1,20 +1,26 @@
-class Solution:
-    def reverseVowels(self, s: str) -> str:
+class Solution {
+public:
+    string reverseVowels(string s) {
         
-        vowels,res = [],""
+        // two pointer
+
+        string word = s;
+        int start = 0;
+        int end = s.length() - 1;
+        string vowels = "aeiouAEIOU";
         
-        for l in s:
-            if l in "aeiouAEIOU":
-                vowels.append(l)
+        while (start < end) {
+            while (start < end && vowels.find(word[start]) == string::npos) {
+                start++;
+            }
+            while (start < end && vowels.find(word[end]) == string::npos) {
+                end--;
+            }
+            swap(word[start], word[end]);
+            start++;
+            end--;
+        }
         
-        pointer = len(vowels)-1
-        
-        for l in s:
-            if l not in "aeiouAEIOU":
-                res+=l
-            else:
-                res+=vowels[pointer]
-                pointer-=1
-                
-        return res
-                
+        return word;
+    }
+};
